@@ -1,3 +1,181 @@
+export const gCode = {
+  gb: "United Kingdom",
+  us: "United States",
+  at: "Austria",
+  au: "Australia",
+  be: "Belgium",
+  br: "Brazil",
+  ca: "Canada",
+  ch: "Switzerland",
+  de: "Germany",
+  es: "Spain",
+  fr: "France",
+  in: "India",
+  it: "Italy",
+  mx: "Mexico",
+  nl: "Netherlands",
+  nz: "New Zealand",
+  pl: "Poland",
+  sg: "Singapore",
+  za: "South Africa",
+};
+
+export const categories = {
+  results: [
+    {
+      label: "Accounting & Finance Jobs",
+      tag: "accounting-finance-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      label: "IT Jobs",
+      tag: "it-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      label: "Sales Jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "sales-jobs",
+    },
+    {
+      label: "Customer Services Jobs",
+      tag: "customer-services-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      label: "Engineering Jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "engineering-jobs",
+    },
+    {
+      tag: "hr-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      label: "HR & Recruitment Jobs",
+    },
+    {
+      label: "Healthcare & Nursing Jobs",
+      tag: "healthcare-nursing-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "hospitality-catering-jobs",
+      label: "Hospitality & Catering Jobs",
+    },
+    {
+      label: "PR, Advertising & Marketing Jobs",
+      tag: "pr-advertising-marketing-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      label: "Logistics & Warehouse Jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "logistics-warehouse-jobs",
+    },
+    {
+      label: "Teaching Jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "teaching-jobs",
+    },
+    {
+      label: "Trade & Construction Jobs",
+      tag: "trade-construction-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      label: "Admin Jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "admin-jobs",
+    },
+    {
+      tag: "legal-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      label: "Legal Jobs",
+    },
+    {
+      label: "Creative & Design Jobs",
+      tag: "creative-design-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      tag: "graduate-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      label: "Graduate Jobs",
+    },
+    {
+      label: "Retail Jobs",
+      tag: "retail-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "consultancy-jobs",
+      label: "Consultancy Jobs",
+    },
+    {
+      tag: "manufacturing-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      label: "Manufacturing Jobs",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "scientific-qa-jobs",
+      label: "Scientific & QA Jobs",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "social-work-jobs",
+      label: "Social work Jobs",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "travel-jobs",
+      label: "Travel Jobs",
+    },
+    {
+      tag: "energy-oil-gas-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      label: "Energy, Oil & Gas Jobs",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "property-jobs",
+      label: "Property Jobs",
+    },
+    {
+      label: "Charity & Voluntary Jobs",
+      tag: "charity-voluntary-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "domestic-help-cleaning-jobs",
+      label: "Domestic help & Cleaning Jobs",
+    },
+    {
+      label: "Maintenance Jobs",
+      tag: "maintenance-jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+    },
+    {
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "part-time-jobs",
+      label: "Part time Jobs",
+    },
+    {
+      label: "Other/General Jobs",
+      __CLASS__: "Adzuna::API::Response::Category",
+      tag: "other-general-jobs",
+    },
+    {
+      tag: "unknown",
+      __CLASS__: "Adzuna::API::Response::Category",
+      label: "Unknown",
+    },
+  ],
+  __CLASS__: "Adzuna::API::Response::Categories",
+};
+
 export const data = {
   count: 5399,
   results: [
