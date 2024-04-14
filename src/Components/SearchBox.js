@@ -7,7 +7,7 @@ import { gCode } from "../fakeJson";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { setName } from "../Redux/actions/nameAction";
-import { setLocation } from "../Redux/actions/locationAction";
+import { setCountry } from "../Redux/actions/countryAction";
 import { setTag } from "../Redux/actions/tagAction";
 
 // name
@@ -15,14 +15,14 @@ import { setTag } from "../Redux/actions/tagAction";
 // job category tags fetched by geo location code
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const { name, location, tag } = useSelector((state) => state.params);
+  const { name, country, tag } = useSelector((state) => state.params);
 
   const updateName = (e) => {
     dispatch(setName(e.target.value));
   };
 
-  const updateLocation = (e) => {
-    dispatch(setLocation(e.target.value));
+  const updateCountry = (e) => {
+    dispatch(setCountry(e.target.value));
   };
 
   const updateTag = (category) => {
@@ -58,14 +58,14 @@ const SearchBox = () => {
             </span>
           </div>
           <select
-            id="location"
-            name="location"
-            value={location}
-            onChange={updateLocation}
+            id="country"
+            name="country"
+            value={country}
+            onChange={updateCountry}
             className="block h-full w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           >
             <option disabled hidden value="">
-              Location
+              Country
             </option>
             {Object.keys(gCode).map((code, index) => (
               <option key={index} value={code}>
@@ -82,9 +82,9 @@ const SearchBox = () => {
           <li
             key={index}
             className={`bg-gray-100 px-2 rounded-md cursor-pointer hover:bg-gray-300 border ${
-              category.label === tag && "bg-gray-300"
+              category.tag === tag && "bg-gray-300"
             }`}
-            onClick={() => updateTag(category.label)}
+            onClick={() => updateTag(category.tag)}
           >
             <p>{category.label}</p>
           </li>

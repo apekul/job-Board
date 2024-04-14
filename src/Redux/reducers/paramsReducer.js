@@ -1,14 +1,17 @@
-import { SET_LOCATION } from "../actions/locationAction";
+import { SET_COUNTRY } from "../actions/countryAction";
 import { SET_NAME } from "../actions/nameAction";
 import { SET_PAGE_SIZE } from "../actions/pageSizeAction";
 import { SET_TAG } from "../actions/tagAction";
+import { SET_PAGE } from "../actions/pageAction";
+import { SET_SORT } from "../actions/sortAction";
 
 const initialState = {
   name: "",
-  location: "",
+  country: "pl",
   pageSize: 10,
+  page: 1,
   tag: "",
-  fetchedData: [],
+  sort: "",
 };
 
 export const paramsReducer = (state = initialState, action) => {
@@ -18,20 +21,30 @@ export const paramsReducer = (state = initialState, action) => {
         ...state,
         name: action.payload,
       };
-    case SET_LOCATION:
+    case SET_COUNTRY:
       return {
         ...state,
-        location: action.payload,
+        country: action.payload,
       };
     case SET_PAGE_SIZE:
       return {
         ...state,
         pageSize: action.payload,
       };
+    case SET_PAGE:
+      return {
+        ...state,
+        page: action.payload,
+      };
     case SET_TAG:
       return {
         ...state,
         tag: action.payload,
+      };
+    case SET_SORT:
+      return {
+        ...state,
+        sort: action.payload,
       };
     default:
       return state;
