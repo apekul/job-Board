@@ -18,10 +18,12 @@ function App() {
   const { jobs, status, error } = useSelector((state) => state.data);
   console.log({ jobs, status, error });
   return (
-    <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-40">
-      <SearchBox />
-      <SortPageSize />
-      <JobBoard />
+    <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32 2xl:mx-40 min-h-[100vh] flex flex-col justify-between">
+      <>
+        <SearchBox />
+        <SortPageSize />
+        <JobBoard />
+      </>
       <Paggination />
     </div>
   );
