@@ -37,7 +37,7 @@ const SearchBox = () => {
 
   return (
     <div className="flex gap-3 flex-col">
-      <div className="flex h-16 items-center gap-3">
+      <div className="flex h-auto my-3 flex-col sm:flex-row  gap-3">
         {/* Name */}
         <div className="relative rounded-md shadow-sm">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -50,7 +50,7 @@ const SearchBox = () => {
             name="name"
             id="name"
             value={name}
-            className="block w-full rounded-md border-0 py-1.5 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="block min-w-[10rem] rounded-md border-0 py-1.5 pl-10  text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Search"
             onChange={updateName}
           />
@@ -68,7 +68,7 @@ const SearchBox = () => {
             name="country"
             value={country}
             onChange={updateCountry}
-            className="w-full rounded-md border-0 py-[0.5rem] pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className=" min-w-[10rem] rounded-md border-0 py-[0.5rem] pl-10  text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           >
             <option disabled hidden value="">
               Country
