@@ -10,10 +10,8 @@ import { setName } from "../Redux/actions/nameAction";
 import { setCountry } from "../Redux/actions/countryAction";
 import { setTag } from "../Redux/actions/tagAction";
 import { fetchDataJobs } from "../Redux/store/fetchDataJobs";
+import { setPage } from "../Redux/actions/pageAction";
 
-// name
-// location
-// job category tags fetched by geo location code
 const SearchBox = () => {
   const dispatch = useDispatch();
   const { name, country, tag } = useSelector((state) => state.params);
@@ -28,17 +26,20 @@ const SearchBox = () => {
 
   const updateTag = (category) => {
     dispatch(setTag(category === tag ? "" : category));
+    dispatch(setPage(1));
+    dispatch(fetchDataJobs());
   };
 
   const handleSearch = () => {
+    dispatch(setPage(1));
     dispatch(fetchDataJobs());
   };
 
   return (
     <div className="flex gap-3 flex-col">
-      <div className="flex gap-3">
+      <div className="flex h-16 items-center gap-3">
         {/* Name */}
-        <div className="relative mt-2 rounded-md shadow-sm">
+        <div className="relative rounded-md shadow-sm">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="text-gray-500 sm:text-sm">
               <FaSearch />
@@ -56,7 +57,7 @@ const SearchBox = () => {
         </div>
 
         {/* Location */}
-        <div className="relative mt-2 rounded-md shadow-sm">
+        <div className="relative rounded-md shadow-sm">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="text-gray-500 sm:text-sm">
               <FaLocationDot />
@@ -67,7 +68,7 @@ const SearchBox = () => {
             name="country"
             value={country}
             onChange={updateCountry}
-            className="block h-full w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="w-full rounded-md border-0 py-[0.5rem] pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           >
             <option disabled hidden value="">
               Country
@@ -79,7 +80,14 @@ const SearchBox = () => {
             ))}
           </select>
         </div>
-        <button onClick={handleSearch}>Search</button>
+
+        {/* search button */}
+        <button
+          className="bg-blue-500 hover:bg-blue-700 w-20 text-white font-bold py-[0.4rem] px-4 rounded"
+          onClick={handleSearch}
+        >
+          Search
+        </button>
       </div>
 
       {/* Search Tags */}

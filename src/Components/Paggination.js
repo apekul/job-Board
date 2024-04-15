@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "../Redux/actions/pageAction";
+import { fetchDataJobs } from "../Redux/store/fetchDataJobs";
 
 const Paggination = () => {
   // get max count of fetch data, divide by pageSize to get pages
@@ -24,6 +25,10 @@ const Paggination = () => {
     const newTotalPages = Math.ceil(count / pageSize);
     setTotalPages(newTotalPages);
   }, [count, pageSize]);
+
+  useEffect(() => {
+    dispatch(fetchDataJobs());
+  }, [page]);
 
   return (
     <>

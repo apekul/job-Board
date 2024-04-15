@@ -3,9 +3,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPageSize } from "../Redux/actions/pageSizeAction";
 import { setSort } from "../Redux/actions/sortAction";
+import { fetchDataJobs } from "../Redux/store/fetchDataJobs";
 
 const pageSizes = [10, 20, 30, 40, 50];
-const sortBy = ["", "hybrid", "date", "salary", "relevance"];
+const sortBy = ["hybrid", "date", "salary", "relevance"];
+// const sortBy = ["date", "salary", "relevance"];
 
 const SortPageSize = () => {
   const dispatch = useDispatch();
@@ -13,10 +15,12 @@ const SortPageSize = () => {
 
   const updatePageSize = (e) => {
     dispatch(setPageSize(e.target.value));
+    dispatch(fetchDataJobs());
   };
 
   const updateSort = (e) => {
     dispatch(setSort(e.target.value));
+    dispatch(fetchDataJobs());
   };
 
   return (
@@ -31,8 +35,13 @@ const SortPageSize = () => {
           onChange={updateSort}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
         >
+          <option value="">Default</option>
           {sortBy.map((sort, index) => (
-            <option key={index} value={sort}>
+            <option
+              key={index}
+              value={sort}
+              disabled={sort === "hybrid" || sort === "salary"}
+            >
               {sort}
             </option>
           ))}

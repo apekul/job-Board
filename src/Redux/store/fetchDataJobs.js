@@ -12,31 +12,14 @@ export const fetchDataJobs = createAsyncThunk(
     const { name, country, pageSize, page, tag, sort } = getState().params;
     const appID = process.env.REACT_APP_APP_ID;
     const appKey = process.env.REACT_APP_APP_KEY;
-    const baseUrl = `https://api.adzuna.com/v1/api/jobs/${country}/search/${page}?app_id=${appID}&app_key=${appKey}&results_per_page=${pageSize}&what=${encodeURIComponent(
-      name
-    )}`;
-    // let fullUrl = baseUrl;
-    // if (tag !== "") {
-    //   fullUrl += `&category=${tag}`;
-    // }
-    // if (sort !== "") {
-    //   fullUrl += `&sort_by=${sort}`;
-    // }
-    // const params = {
-    //   category: tag,
-    //   sort_by: sort,
-    //   param1: param1,
-    //   param2: param2,
-    // };
-
-    // Filter out empty values and map to query parameter strings
-    // const queryParams = Object.entries(params)
-    //   .filter(([key, value]) => value !== "")
-    //   .map(([key, value]) => `&${key}=${value}`)
-    //   .join("");
+    const baseUrl = `https://api.adzuna.com/v1/api/jobs/${country}/search/${page}?app_id=${appID}&app_key=${appKey}&results_per_page=${pageSize}`;
+    let fullUrl = baseUrl;
+    if (name) fullUrl += `&what=${encodeURIComponent(name)}`;
+    if (tag) fullUrl += `&category=${tag}`;
+    if (sort) fullUrl += `&sort_by=${sort}`;
 
     try {
-      const response = await fetch(baseUrl);
+      const response = await fetch(fullUrl);
       // Check if the request was successful
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

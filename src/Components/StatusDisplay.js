@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { BsCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
+import { BsFillXCircleFill } from "react-icons/bs";
 const StatusDisplay = () => {
   const { jobs, status, error } = useSelector((state) => state.data);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const getErrorMessage = (error) => {
     if (error) {
@@ -30,24 +30,17 @@ const StatusDisplay = () => {
     return "Oops! Something went wrong. Please try again later or contact support for assistance.";
   };
 
-  useEffect(() => {
-    if (status === "succeeded") {
-      setShowSuccessMessage(true);
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-      }, 3000); // Hide after 3 seconds
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === "succeeded") {
+  //     setShowSuccessMessage(true);
+  //     setTimeout(() => {
+  //       setShowSuccessMessage(false);
+  //     }, 3000); // Hide after 3 seconds
+  //   }
+  // }, [status]);
 
   return (
     <div className="flex items-center gap-5">
-      {/* succeeded */}
-      {showSuccessMessage && (
-        <div className="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3">
-          <BsCheckCircleFill />
-          <p className="ml-2">Data fetched successfully!</p>
-        </div>
-      )}
       {/* Loading */}
       {status === "loading" && (
         <div
@@ -59,6 +52,13 @@ const StatusDisplay = () => {
           </span>
         </div>
       )}
+      {/* succeeded */}
+      {/* {showSuccessMessage && (
+        <div className="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3">
+          <BsCheckCircleFill />
+          <p className="ml-2">Data fetched successfully!</p>
+        </div>
+      )} */}
 
       {/* error */}
       {error && (
