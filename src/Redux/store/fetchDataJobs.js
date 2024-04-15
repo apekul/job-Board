@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { data } from "../../fakeJson";
-// http://api.adzuna.com/v1/api/jobs/
 
 export const fetchDataJobs = createAsyncThunk(
   "data/fetchData",
