@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setName } from "../Redux/actions/nameAction";
 import { setCountry } from "../Redux/actions/countryAction";
 import { setTag } from "../Redux/actions/tagAction";
+import { fetchDataJobs } from "../Redux/store/fetchDataJobs";
 
 // name
 // location
@@ -27,6 +28,10 @@ const SearchBox = () => {
 
   const updateTag = (category) => {
     dispatch(setTag(category === tag ? "" : category));
+  };
+
+  const handleSearch = () => {
+    dispatch(fetchDataJobs());
   };
 
   return (
@@ -74,6 +79,7 @@ const SearchBox = () => {
             ))}
           </select>
         </div>
+        <button onClick={handleSearch}>Search</button>
       </div>
 
       {/* Search Tags */}
