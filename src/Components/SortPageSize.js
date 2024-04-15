@@ -20,7 +20,7 @@ const SortPageSize = () => {
   };
 
   return (
-    <div className="flex items-center gap-10 justify-end  mt-5">
+    <div className="flex items-center gap-10 justify-end">
       {/* Sort */}
       <div className="flex flex-col ">
         <label htmlFor="pageSize" className="text-sm font-medium ">

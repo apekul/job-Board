@@ -22,6 +22,19 @@ export const fetchDataJobs = createAsyncThunk(
     // if (sort !== "") {
     //   fullUrl += `&sort_by=${sort}`;
     // }
+    // const params = {
+    //   category: tag,
+    //   sort_by: sort,
+    //   param1: param1,
+    //   param2: param2,
+    // };
+
+    // Filter out empty values and map to query parameter strings
+    // const queryParams = Object.entries(params)
+    //   .filter(([key, value]) => value !== "")
+    //   .map(([key, value]) => `&${key}=${value}`)
+    //   .join("");
+
     try {
       const response = await fetch(baseUrl);
       // Check if the request was successful
@@ -51,14 +64,17 @@ export const dataSlice = createSlice({
     builder
       .addCase(fetchDataJobs.pending, (state) => {
         state.status = "loading";
+        state.error = null;
       })
       .addCase(fetchDataJobs.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.jobs = action.payload.results;
         state.count = action.payload.count;
         state.mean = action.payload.mean;
+        state.error = null;
       })
       .addCase(fetchDataJobs.rejected, (state, action) => {
+        console.log(action.error);
         state.status = "failed";
         state.error = action.error.message;
       });
