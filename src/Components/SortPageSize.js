@@ -6,8 +6,8 @@ import { setSort } from "../Redux/actions/sortAction";
 import { fetchDataJobs } from "../Redux/store/fetchDataJobs";
 
 const pageSizes = [10, 20, 30, 40, 50];
-const sortBy = ["hybrid", "date", "salary", "relevance"];
-// const sortBy = ["date", "salary", "relevance"];
+// const sortBy = ["hybrid", "date", "salary", "relevance"];
+const sortBy = ["date", "salary", "relevance"];
 
 const SortPageSize = () => {
   const dispatch = useDispatch();
@@ -37,11 +37,7 @@ const SortPageSize = () => {
         >
           <option value="">Default</option>
           {sortBy.map((sort, index) => (
-            <option
-              key={index}
-              value={sort}
-              disabled={sort === "hybrid" || sort === "salary"}
-            >
+            <option key={index} value={sort}>
               {sort}
             </option>
           ))}

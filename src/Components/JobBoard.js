@@ -8,8 +8,14 @@ const JobBoard = () => {
   const { jobs } = useSelector((state) => state.data);
   const [colors, setColors] = useState([]);
 
-  const truncateCompanyName = (name, maxLength = 10) =>
-    name.length > maxLength ? name.substring(0, maxLength - 3) + "..." : name;
+  const truncateCompanyName = (name, maxLength = 10) => {
+    if (typeof name !== "string" || name.length === 0) {
+      return "";
+    }
+    return name.length > maxLength
+      ? name.substring(0, maxLength - 3) + "..."
+      : name;
+  };
 
   useEffect(() => {
     setColors(jobs.map(() => randomColor({ luminosity: "light" })));
